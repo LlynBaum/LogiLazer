@@ -1,4 +1,5 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Parcels
 {
@@ -32,8 +33,13 @@ namespace Parcels
             if (time < 1f)
             {
                 time += Time.deltaTime * speed;
-                Vector3 newPosition = CalculateParabolicPoint(time, spawnPosition, target.position, height);
+                var newPosition = CalculateParabolicPoint(time, spawnPosition, target.position, height);
                 transform.position = newPosition;
+            }
+            else
+            {
+                EventManager.PlayerHit();
+                Destroy(gameObject);
             }
         }
 
