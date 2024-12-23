@@ -8,10 +8,16 @@ namespace ProGlove
         public Transform rayCastTransform;
         public Transform bone;
 
+        public int iterations = 10;
+        
         private void LateUpdate()
         {
             var targetPosition = targetTransform.position;
-            AimAt(targetPosition);
+
+            for (var i = 0; i < iterations; i++)
+            {
+                AimAt(targetPosition);
+            }
         }
 
         private void AimAt(Vector3 targetPosition)
@@ -20,7 +26,8 @@ namespace ProGlove
             var targetDirection = targetPosition - rayCastTransform.position;
             
             var aimTowards = Quaternion.FromToRotation(currentDirection, targetDirection);
-            bone.rotation = aimTowards * bone.rotation;
+            var blendedRotation = Quaternion.Slerp(Quaternion.identity, aimTowards, 1.0f);
+            bone.rotation = blendedRotation * bone.rotation;
         }
     }
 }
