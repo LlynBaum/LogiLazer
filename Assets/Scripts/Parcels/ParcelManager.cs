@@ -25,7 +25,6 @@ namespace Parcels
             var xOffSet = Random.Range(-maxOffSetX, maxOffSetX);
             var yOffSet = Random.Range(-maxOffSetY, maxOffSetY);
             var position = new Vector3(xOffSet, yOffSet) + transform.position;
-            Debug.Log(position);
             Instantiate(prefab, position, transform.rotation);
         }
 
