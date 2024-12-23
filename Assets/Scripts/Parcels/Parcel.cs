@@ -38,7 +38,7 @@ namespace Parcels
             }
             else
             {
-                EventManager.PlayerHit();
+                GameManager.instance.PlayerHit();
                 Destroy(gameObject);
             }
         }
