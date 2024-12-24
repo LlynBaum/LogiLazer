@@ -18,6 +18,11 @@ namespace Parcels
         
         private void Start()
         {
+            if (Instance is not null)
+            {
+                Destroy(this);
+                return;
+            }
             Instance = this;
             transform.LookAt(target);
 
