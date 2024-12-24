@@ -29,13 +29,9 @@ namespace Player
         {
             Gizmos.color = Color.magenta;
             Debug.DrawRay(raycast.position, raycast.forward * 50, Color.magenta, 1f);
-            
-            return Physics.Raycast(
-                origin: raycast.position, 
-                direction: raycast.forward,
-                hitInfo: out hit,
-                maxDistance: raycastLength, 
-                layerMask: parcelMask);
+
+            var ray = new Ray(raycast.position, raycast.forward);
+            return Physics.Raycast(ray: ray, hitInfo: out hit, maxDistance: raycastLength, layerMask: parcelMask);
         }
 
         public void OnMouseMovement(InputAction.CallbackContext context)
