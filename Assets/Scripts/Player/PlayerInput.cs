@@ -6,8 +6,11 @@ namespace Player
     public class PlayerInput : MonoBehaviour
     {
         public float sensitivity;
+        public float shootCooldown;
         public Transform raycast;
         public float raycastLength;
+
+        private float currentShootCooldown;
 
         private Camera mainCamera;
 
@@ -15,14 +18,27 @@ namespace Player
 
         private void Start()
         {
+            currentShootCooldown = 0;
+            mainCamera = Camera.main;
+            parcelMask = LayerMask.GetMask("Parcel");
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            parcelMask = LayerMask.GetMask("Parcel");
-            mainCamera = Camera.main;
+        }
+
+        private void Update()
+        {
+            if (currentShootCooldown > 0f) currentShootCooldown -= Time.deltaTime;
         }
 
         public void OnShoot(InputAction.CallbackContext context)
         {
+            if (currentShootCooldown > 0f)
+            {
+                return;
+            }
+            currentShootCooldown = shootCooldown;
+
             if (Raycast(out var hit))
             {
                 GameManager.Instance.ParcelHit(hit.collider.gameObject);
@@ -32,7 +48,7 @@ namespace Player
         private bool Raycast(out RaycastHit hit)
         {
             var ray = new Ray(raycast.position, raycast.forward);
-            return Physics.Raycast(ray: ray, hitInfo: out hit, maxDistance: raycastLength, layerMask: parcelMask);
+            return Physics.Raycast(ray, out hit, raycastLength, parcelMask);
         }
 
         public void OnMouseMovement(InputAction.CallbackContext context)
@@ -46,7 +62,7 @@ namespace Player
             var depth = Vector3.Distance(mainCamera.transform.position, transform.position);
             var bottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, depth));
             var topRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, depth));
-            
+
             newTargetPosition.x = Mathf.Clamp(newTargetPosition.x, bottomLeft.x, topRight.x);
             newTargetPosition.y = Mathf.Clamp(newTargetPosition.y, bottomLeft.y, topRight.y);
 
