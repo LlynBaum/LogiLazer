@@ -6,7 +6,7 @@ namespace Player
     {
         private void OnDrawGizmos()
         {
-            Debug.DrawRay(transform.position,  transform.position + transform.forward * 50, Color.yellow);
+            Debug.DrawRay(transform.position,  transform.forward * 50, Color.red);
         }
     }
 }

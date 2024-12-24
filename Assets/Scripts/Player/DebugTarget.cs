@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Player
@@ -7,8 +6,8 @@ namespace Player
     {
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(transform.position, 0.05f);
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawSphere(transform.position, 0.1f);
         }
     }
 }

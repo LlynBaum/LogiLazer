@@ -1,17 +1,22 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static GameManager Instance;
 
     private void Start()
     {
-        instance = this;
+        Instance = this;
     }
 
     public void PlayerHit()
     {
-        // Debug.Log("Player was hit by Parcel");
+        Debug.Log("Player was hit by Parcel");
+    }
+
+    public void ParcelHit(GameObject parcel)
+    {
+        Debug.Log("Parcel was hit by Player");
+        Destroy(parcel);
     }
 }
