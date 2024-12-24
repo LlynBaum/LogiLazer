@@ -1,4 +1,5 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Parcels
 {
@@ -8,7 +9,9 @@ namespace Parcels
         
         public GameObject prefab;
         public Transform target;
-        public int rate;
+        
+        public float rateMin;
+        public float rateMax;
 
         public float maxOffSetX;
         public float maxOffSetY;
@@ -17,7 +20,15 @@ namespace Parcels
         {
             Instance = this;
             transform.LookAt(target);
+
+            var rate = Random.Range(rateMin, rateMax);
             InvokeRepeating(nameof(LaunchParcel), 3, rate);
+        }
+
+        private void OnDestroy()
+        {
+            CancelInvoke();
+            Instance = null;
         }
 
         private void LaunchParcel()

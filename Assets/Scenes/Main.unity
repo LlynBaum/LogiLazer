@@ -938,9 +938,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4377341392811085357, guid: 913f45e2358c63849b0fca5eaecaadbb, type: 3}
   target: {fileID: 1090179467}
-  rate: 3
-  maxOffSetX: 3
-  maxOffSetY: 3
+  rateMin: 0.3
+  rateMax: 2
+  maxOffSetX: 10
+  maxOffSetY: 2.75
 --- !u!4 &1140252829
 Transform:
   m_ObjectHideFlags: 0
@@ -1066,7 +1067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e85a40e55e18146ad5064bd42081e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 0
+  startHealth: 5
 --- !u!4 &1932119058
 Transform:
   m_ObjectHideFlags: 0

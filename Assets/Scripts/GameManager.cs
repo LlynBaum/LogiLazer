@@ -1,3 +1,4 @@
+using Parcels;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Lost! Health is zero");
+            Destroy(ParcelManager.Instance.gameObject);
         }
     }
 

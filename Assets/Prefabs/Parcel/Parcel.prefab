@@ -122,6 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 0.5
-  maxSpeed: 1.5
-  minHeight: 1
-  maxHeight: 3
+  maxSpeed: 1
+  minHeight: 0.5
+  maxHeight: 1
