@@ -23,16 +23,10 @@ namespace ProGlove
         private void Update()
         {
             var ray = new Ray(transform.position, transform.forward);
-            if (Physics.Raycast(ray, out var hit))
-            {
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, hit.point);
-            }
-            else
-            {
-                lineRenderer.SetPosition(0, transform.position);
-                lineRenderer.SetPosition(1, target.position);
-            }
+            var isHit = Physics.Raycast(ray, out var hit);
+            
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, isHit ? hit.point : target.position);
         }
     }
 }
