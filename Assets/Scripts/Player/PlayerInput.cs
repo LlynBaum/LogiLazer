@@ -8,18 +8,18 @@ namespace Player
         public float sensitivity;
         public Transform raycast;
         public float raycastLength;
-        public LayerMask layerMask;
 
         private int parcelMask;
 
         private void Start()
         {
-            parcelMask = 1 << layerMask;
+            parcelMask = LayerMask.GetMask("Parcel");
         }
 
         public void OnShoot(InputAction.CallbackContext context)
         {
-            if (Raycast(out var hit))
+            var result = Raycast(out var hit);
+            if (result)
             {
                 GameManager.Instance.ParcelHit(hit.collider.gameObject);
             }
@@ -28,11 +28,11 @@ namespace Player
         private bool Raycast(out RaycastHit hit)
         {
             Gizmos.color = Color.magenta;
-            Debug.DrawRay(raycast.position, raycast.TransformDirection(transform.forward) * 50, Color.magenta, 1f);
+            Debug.DrawRay(raycast.position, raycast.forward * 50, Color.magenta, 1f);
             
             return Physics.Raycast(
                 origin: raycast.position, 
-                direction: raycast.TransformDirection(raycast.forward),
+                direction: raycast.forward,
                 hitInfo: out hit,
                 maxDistance: raycastLength, 
                 layerMask: parcelMask);
