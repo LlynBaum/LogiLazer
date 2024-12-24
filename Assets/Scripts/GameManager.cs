@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
         if (health <= 0)
         {
             Destroy(ParcelManager.Instance.gameObject);
-            Debug.Log("Lost! Health is zero");
         }
     }
 
