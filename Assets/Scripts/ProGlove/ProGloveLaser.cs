@@ -5,7 +5,6 @@ namespace ProGlove
     public class ProGloveLaser : MonoBehaviour
     {
         public LineRenderer lineRenderer;
-
         public Transform target;
         
         public float startWidth;
