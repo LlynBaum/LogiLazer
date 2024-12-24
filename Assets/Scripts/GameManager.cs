@@ -4,19 +4,32 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public int startHealth;
+    
+    private int health;
+    private int score;
+
     private void Start()
     {
         Instance = this;
+        health = startHealth;
     }
 
     public void PlayerHit()
     {
-        Debug.Log("Player was hit by Parcel");
+        health--;
+        Debug.Log($"Health: {health}/{startHealth}");
+
+        if (health <= 0)
+        {
+            Debug.Log("Lost! Health is zero");
+        }
     }
 
     public void ParcelHit(GameObject parcel)
     {
-        Debug.Log("Parcel was hit by Player");
         Destroy(parcel);
+        score++;
+        Debug.Log($"Score: {score}");
     }
 }

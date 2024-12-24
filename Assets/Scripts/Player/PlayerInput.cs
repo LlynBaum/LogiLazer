@@ -9,17 +9,21 @@ namespace Player
         public Transform raycast;
         public float raycastLength;
 
+        private Camera mainCamera;
+
         private int parcelMask;
 
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
             parcelMask = LayerMask.GetMask("Parcel");
+            mainCamera = Camera.main;
         }
 
         public void OnShoot(InputAction.CallbackContext context)
         {
-            var result = Raycast(out var hit);
-            if (result)
+            if (Raycast(out var hit))
             {
                 GameManager.Instance.ParcelHit(hit.collider.gameObject);
             }
@@ -27,9 +31,6 @@ namespace Player
 
         private bool Raycast(out RaycastHit hit)
         {
-            Gizmos.color = Color.magenta;
-            Debug.DrawRay(raycast.position, raycast.forward * 50, Color.magenta, 1f);
-
             var ray = new Ray(raycast.position, raycast.forward);
             return Physics.Raycast(ray: ray, hitInfo: out hit, maxDistance: raycastLength, layerMask: parcelMask);
         }
@@ -42,8 +43,12 @@ namespace Player
             newTargetPosition.x += mouseMoveVector.x * sensitivity;
             newTargetPosition.y += mouseMoveVector.y * sensitivity;
 
-            newTargetPosition.x = Mathf.Clamp(newTargetPosition.x, -5f, 5f);
-            newTargetPosition.y = Mathf.Clamp(newTargetPosition.y, -5f, 5f);
+            var depth = Vector3.Distance(mainCamera.transform.position, transform.position);
+            var bottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, depth));
+            var topRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, depth));
+            
+            newTargetPosition.x = Mathf.Clamp(newTargetPosition.x, bottomLeft.x, topRight.x);
+            newTargetPosition.y = Mathf.Clamp(newTargetPosition.y, bottomLeft.y, topRight.y);
 
             transform.position = newTargetPosition;
         }
