@@ -12,11 +12,7 @@ namespace ProGlove
         private void LateUpdate()
         {
             var targetPosition = targetTransform.position;
-
-            for (var i = 0; i < iterations; i++)
-            {
-                AimAt(targetPosition);
-            }
+            AimAt(targetPosition);
         }
 
         private void AimAt(Vector3 targetPosition)
@@ -25,8 +21,7 @@ namespace ProGlove
             var targetDirection = (targetPosition - transform.position).normalized;
             
             var aimTowards = Quaternion.FromToRotation(currentDirection, targetDirection);
-            var blendedRotation = Quaternion.Slerp(Quaternion.identity, aimTowards, 1.0f);
-            bone.rotation = blendedRotation * bone.rotation;
+            bone.rotation = aimTowards * bone.rotation;
         }
     }
 }
