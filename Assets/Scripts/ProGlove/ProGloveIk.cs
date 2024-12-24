@@ -6,8 +6,6 @@ namespace ProGlove
     {
         public Transform targetTransform;
         public Transform bone;
-
-        public int iterations = 10;
         
         private void LateUpdate()
         {
