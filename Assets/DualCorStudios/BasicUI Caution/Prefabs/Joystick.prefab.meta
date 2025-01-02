@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9daa9ea7cbeba394cb3053fe050494af
+timeCreated: 1445897451
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 48827
+  packageName: 'Basic UI Elements: Caution'
+  packageVersion: 1.0
+  assetPath: Assets/DualCorStudios/BasicUI Caution/Prefabs/Joystick.prefab
+  uploadId: 88530

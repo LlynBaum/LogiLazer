@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a40867dd6646c86419a50c6914d07e7d
+timeCreated: 1445897465
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 48827
+  packageName: 'Basic UI Elements: Caution'
+  packageVersion: 1.0
+  assetPath: Assets/DualCorStudios/BasicUI Caution/Prefabs/Dialog.prefab
+  uploadId: 88530

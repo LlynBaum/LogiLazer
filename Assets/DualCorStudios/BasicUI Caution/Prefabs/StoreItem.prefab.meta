@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e220d34f8ad721645ab6014ff0ad9a4c
+timeCreated: 1445897501
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 48827
+  packageName: 'Basic UI Elements: Caution'
+  packageVersion: 1.0
+  assetPath: Assets/DualCorStudios/BasicUI Caution/Prefabs/StoreItem.prefab
+  uploadId: 88530
