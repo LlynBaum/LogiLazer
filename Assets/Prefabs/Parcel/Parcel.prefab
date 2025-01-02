@@ -109,6 +109,8 @@ MonoBehaviour:
   maxSpeed: 1
   minHeight: 0.5
   maxHeight: 1
+  initialSpinSpeed: 100
+  spinDamping: 0.95
 --- !u!65 &999157634958847551
 BoxCollider:
   m_ObjectHideFlags: 0

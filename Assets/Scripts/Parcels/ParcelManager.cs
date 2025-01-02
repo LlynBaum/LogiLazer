@@ -40,7 +40,7 @@ namespace Parcels
 
         private void LaunchParcel()
         {
-            var prefab = Random.value > 0.6 ? specialParcelPrefab : parcelPrefab;
+            var prefab = Random.value > 0.9 ? specialParcelPrefab : parcelPrefab;
             
             var xOffSet = Random.Range(-maxOffSetX, maxOffSetX);
             var yOffSet = Random.Range(-maxOffSetY, maxOffSetY);

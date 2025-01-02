@@ -1,3 +1,4 @@
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,9 +13,13 @@ namespace Parcels
 
         public float minHeight;
         public float maxHeight;
+
+        public float initialSpinSpeed;
         
         private Vector3 spawnPosition;
         private Transform target;
+        
+        private Vector3 spinAxis;
         
         private float height;
         private float speed;
@@ -28,6 +33,8 @@ namespace Parcels
             speed = Random.Range(minSpeed, maxSpeed);
             height = Random.Range(minHeight, maxHeight);
             time = 0f;
+            
+            spinAxis = Random.onUnitSphere;
         }
 
         private void Update()
@@ -35,14 +42,23 @@ namespace Parcels
             if (time < 1f)
             {
                 time += Time.deltaTime * speed;
+                
                 var newPosition = CalculateParabolicPoint(time, spawnPosition, target.position, height);
                 transform.position = newPosition;
+                
+                ApplySpin();
             }
             else
             {
                 GameManager.Instance.PlayerHit();
                 Destroy(gameObject);
             }
+        }
+
+        private void ApplySpin()
+        {
+            var rotationSpeed = Mathf.Clamp01(1f - time + 0.3f) * initialSpinSpeed;
+            transform.Rotate(spinAxis, rotationSpeed * Time.deltaTime, Space.World);
         }
 
         private static Vector3 CalculateParabolicPoint(float t, Vector3 start, Vector3 end, float h)
