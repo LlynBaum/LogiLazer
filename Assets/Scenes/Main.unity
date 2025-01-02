@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f7d0cee1208674785065baf1e18de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4377341392811085357, guid: 913f45e2358c63849b0fca5eaecaadbb, type: 3}
+  prefab: {fileID: 3634167968282138647, guid: 913f45e2358c63849b0fca5eaecaadbb, type: 3}
   target: {fileID: 1090179467}
   rateMin: 0.3
   rateMax: 2
