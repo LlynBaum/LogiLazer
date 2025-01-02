@@ -9,11 +9,9 @@ namespace UI
         
         private int currentValue;
 
-        private void Start()
+        private void Awake()
         {
             textMeshPro = GetComponent<TextMeshProUGUI>();
-            currentValue = 0;
-            Display();
         }
 
         public void OnChange(int newValue)

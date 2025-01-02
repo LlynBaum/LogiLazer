@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         health--;
         onHealthChange.Invoke(health);
 
-        if (health <= 0)
+        if (health == 0)
         {
             Destroy(ParcelManager.Instance.gameObject);
             StateManager.SetScore(score);
