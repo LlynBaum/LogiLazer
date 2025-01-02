@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2949ccb6551ea1a40880cb69d93ba521
+timeCreated: 1445897516
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 48827
+  packageName: 'Basic UI Elements: Caution'
+  packageVersion: 1.0
+  assetPath: Assets/DualCorStudios/BasicUI Caution/Prefabs/InputField.prefab
+  uploadId: 88530
