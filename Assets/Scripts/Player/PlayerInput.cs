@@ -41,7 +41,8 @@ namespace Player
 
             if (Raycast(out var hit))
             {
-                GameManager.Instance.ParcelHit(hit.collider.gameObject);
+                GameManager.Instance.ParcelHit();
+                Destroy(hit.collider.gameObject);
             }
         }
 

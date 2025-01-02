@@ -1,6 +1,7 @@
 using Parcels;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,13 +31,13 @@ public class GameManager : MonoBehaviour
 
         if (health == 0)
         {
-            Destroy(ParcelManager.Instance.gameObject);
+            StateManager.SetScore(score);
+            SceneManager.LoadScene("Menu");
         }
     }
 
-    public void ParcelHit(GameObject parcel)
+    public void ParcelHit()
     {
-        Destroy(parcel);
         score++;
         onScoreChange.Invoke(score);
     }
