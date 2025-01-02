@@ -5,6 +5,8 @@ namespace Parcels
 {
     public class Parcel : MonoBehaviour
     {
+        public ParcelType parcelType;
+        
         public float minSpeed;
         public float maxSpeed;
 
@@ -13,7 +15,7 @@ namespace Parcels
         
         private Vector3 spawnPosition;
         private Transform target;
-
+        
         private float height;
         private float speed;
         private float time;
