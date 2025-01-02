@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 0.01
-  shootCooldown: 0.5
+  shootCooldown: 0.3
   raycast: {fileID: 558615755}
   raycastLength: 50
 --- !u!114 &1022758751
