@@ -12,6 +12,7 @@ namespace UI.Menu
 
         public void OnQuitClick()
         {
+            Debug.Log("Quiting Application!");
             Application.Quit();
         }
     }
