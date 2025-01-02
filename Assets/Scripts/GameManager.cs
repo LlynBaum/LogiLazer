@@ -31,12 +31,12 @@ public class GameManager : MonoBehaviour
         if (health <= 0)
         {
             Destroy(ParcelManager.Instance.gameObject);
+            StateManager.SetScore(score);
         }
     }
 
-    public void ParcelHit(GameObject parcel)
+    public void ParcelHit()
     {
-        Destroy(parcel);
         score++;
         onScoreChange.Invoke(score);
     }
