@@ -7,7 +7,9 @@ namespace Parcels
     {
         public static ParcelManager Instance;
         
-        public GameObject prefab;
+        public GameObject parcelPrefab;
+        public GameObject specialParcelPrefab;
+        
         public Transform target;
         
         public float rateMin;
@@ -38,9 +40,12 @@ namespace Parcels
 
         private void LaunchParcel()
         {
+            var prefab = Random.value > 0.9 ? specialParcelPrefab : parcelPrefab;
+            
             var xOffSet = Random.Range(-maxOffSetX, maxOffSetX);
             var yOffSet = Random.Range(-maxOffSetY, maxOffSetY);
             var position = new Vector3(xOffSet, yOffSet) + transform.position;
+            
             Instantiate(prefab, position, transform.rotation);
         }
 

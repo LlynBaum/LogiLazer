@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4705915905958215966
+--- !u!1001 &8076657792391845536
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2747214
+      value: 1.3690157
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 38.487152
+      value: 38.687614
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -63,10 +63,10 @@ PrefabInstance:
     - target: {fileID: -1504981713932161579, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 51b1f47efbc6dcb4990cc8cf944fe271, type: 2}
+      objectReference: {fileID: 2100000, guid: f2f7ea7b07e956f47af27d8f54f8ba33, type: 2}
     - target: {fileID: -927199367670048503, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: m_Name
-      value: Parcel
+      value: SpecialParcel
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       propertyPath: m_Layer
@@ -82,42 +82,42 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5359372927500648708}
+      addedObject: {fileID: 4818002245842183310}
     - targetCorrespondingSourceObject: {fileID: -927199367670048503, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 999157634958847551}
+      addedObject: {fileID: 949654207302196369}
   m_SourcePrefab: {fileID: 100100000, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
---- !u!1 &3634167968282138647 stripped
+--- !u!1 &231900669721137065 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: a97056cf293fff648bc5d6b58cb552b2, type: 3}
-  m_PrefabInstance: {fileID: 4705915905958215966}
+  m_PrefabInstance: {fileID: 8076657792391845536}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5359372927500648708
+--- !u!114 &4818002245842183310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3634167968282138647}
+  m_GameObject: {fileID: 231900669721137065}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd6adafb7517208469e599fb048842c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parcelType: 1
-  minSpeed: 0.5
-  maxSpeed: 1
+  parcelType: 3
+  minSpeed: 0.7
+  maxSpeed: 1.3
   minHeight: 0.5
   maxHeight: 1
   initialSpinSpeed: 100
   spinDamping: 0.95
---- !u!65 &999157634958847551
+--- !u!65 &949654207302196369
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3634167968282138647}
+  m_GameObject: {fileID: 231900669721137065}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

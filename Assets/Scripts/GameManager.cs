@@ -1,4 +1,3 @@
-using Parcels;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -36,9 +35,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ParcelHit()
+    public void ParcelHit(int value)
     {
-        score++;
+        score += value;
         onScoreChange.Invoke(score);
     }
 }

@@ -1,3 +1,4 @@
+using Parcels;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -41,7 +42,9 @@ namespace Player
 
             if (Raycast(out var hit))
             {
-                GameManager.Instance.ParcelHit();
+                var parcel = hit.collider.GetComponent<Parcel>();
+                var score = (int)parcel.parcelType;
+                GameManager.Instance.ParcelHit(score);
                 Destroy(hit.collider.gameObject);
             }
         }
