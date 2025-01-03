@@ -16,7 +16,7 @@ namespace Player
         protected override IEnumerator StartDeathTask()
         {
             animator.SetTrigger(Die);
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+            yield return new WaitForSeconds(3.54f);
             onFinished.Invoke();
         }
     }
