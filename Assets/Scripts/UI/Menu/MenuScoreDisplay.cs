@@ -7,8 +7,8 @@ namespace UI.Menu
     {
         private void Start()
         {
-            var textMeshPro = GetComponent<Text>();
-            textMeshPro.text = StateManager.HighScore.ToString();
+            var text = GetComponent<Text>();
+            text.text = StateManager.PreviousScore?.ToString() ?? "-";
         }
     }
 }
