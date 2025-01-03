@@ -1,5 +1,5 @@
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI.Menu
 {
@@ -7,7 +7,7 @@ namespace UI.Menu
     {
         private void Start()
         {
-            var textMeshPro = GetComponent<TextMeshProUGUI>();
+            var textMeshPro = GetComponent<Text>();
             textMeshPro.text = StateManager.HighScore.ToString();
         }
     }
