@@ -32,9 +32,10 @@ public class GameManager : MonoBehaviour
     public void PlayerHit()
     {
         health--;
-        onHealthChange.Invoke(health);
+        var h = Mathf.Max(health, 0);
+        onHealthChange.Invoke(h);
 
-        if (health == 0)
+        if (h == 0)
         {
             deathTasks.ForEach(t => t.StartTask());
             StateManager.SetScore(score);
