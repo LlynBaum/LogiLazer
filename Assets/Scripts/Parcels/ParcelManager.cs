@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Parcels
 {
-    public class ParcelManager : MonoBehaviour
+    public class ParcelManager : DeathTask
     {
         public static ParcelManager Instance;
         
@@ -17,6 +18,13 @@ namespace Parcels
 
         public float maxOffSetX;
         public float maxOffSetY;
+        
+        protected override IEnumerator StartDeathTask()
+        {
+            CancelInvoke();
+            onFinished.Invoke();
+            yield return null;
+        }
         
         private void Start()
         {

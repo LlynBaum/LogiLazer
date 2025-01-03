@@ -1,10 +1,11 @@
+using System.Collections;
 using Parcels;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player
 {
-    public class PlayerInput : MonoBehaviour
+    public class PlayerInput : DeathTask
     {
         public float sensitivity;
         public float shootCooldown;
@@ -16,6 +17,8 @@ namespace Player
         private Camera mainCamera;
 
         private int parcelMask;
+        
+        bool aimingEnabled = true;
 
         private void Start()
         {
@@ -49,6 +52,13 @@ namespace Player
             }
         }
 
+        protected override IEnumerator StartDeathTask()
+        {
+            aimingEnabled = false;
+            onFinished.Invoke();
+            yield return null;
+        }
+
         private bool Raycast(out RaycastHit hit)
         {
             var ray = new Ray(raycast.position, raycast.forward);
@@ -57,6 +67,11 @@ namespace Player
 
         public void OnMouseMovement(InputAction.CallbackContext context)
         {
+            if (!aimingEnabled)
+            {
+                return;
+            }
+            
             var mouseMoveVector = context.ReadValue<Vector2>();
 
             var newTargetPosition = transform.position;
