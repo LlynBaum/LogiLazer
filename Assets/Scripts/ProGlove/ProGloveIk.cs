@@ -10,15 +10,8 @@ namespace ProGlove
         private void LateUpdate()
         {
             var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out var hit))
-            {
-                AimAt(hit.point);
-            }
-            else
-            {
-                var targetPosition = ray.origin + ray.direction * 50f;
-                AimAt(targetPosition);
-            }
+            var targetPosition = ray.origin + ray.direction * 50f;
+            AimAt(targetPosition);
         }
 
         private void AimAt(Vector3 targetPosition)

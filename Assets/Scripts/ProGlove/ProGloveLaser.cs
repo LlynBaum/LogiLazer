@@ -40,7 +40,7 @@ namespace ProGlove
             
             var elapsedTime = 0f;
 
-            while (elapsedTime < 0.5f)
+            while (elapsedTime < 0.2f)
             {
                 var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
                 var isHit = Physics.Raycast(ray, out var hit);
